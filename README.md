@@ -60,15 +60,15 @@ In this setup all connections and variables will be taken from your secret manag
 ```
 You can add variables & connections in the configuration as long as they have the prefix AIRFLOW_VAR or AIRFLOW_CONN.
 
----
 To ensure you are setup with GCP, you will need GOOGLE_APPLICATION_CREDENTIALS set and mounted to the container.
-```
+
+```yaml
 GOOGLE_APPLICATION_CREDENTIALS: /opt/airflow/plugins/application_default_credentials.json
 volumes:
   - ~/.config/gcloud/application_default_credentials.json:/opt/airflow/plugins/application_default_credentials.json:rw
 ```
+
 If this file is not found please follow GCP setup step in the setup.
----
 
 Volumes is important as that is what mounts your local file structure to the Docker Container. In this setup the dags are mounted from the root of your project and the other folders from the airflow folder. The .venv is also mounted to ensure their is no clash for the virtual environment.
 
