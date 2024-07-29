@@ -4,13 +4,13 @@
 
 Apache Airflow (or simply Airflow) is a platform to programmatically author, schedule, and monitor workflows. It is a great orchestration tool and can be powerful addition to your tech stack. This is especially true if you use Google Cloud Composer or Astronomer. But what about running it locally? How do you test that your DAG will work before you push it to your Development or Production environment?
 
-I have found that the best way to run airflow locally is with **Docker** due to airflow needing subsequent parts to run as a whole. Docker can handle this by splitting these up into seperate containers. The best two options I have found for utilising this Docker deployment are:
+I have found that the best way to run airflow locally is with **Docker** due to airflow needing subsequent parts to run as a whole. Docker can handle this by splitting these up into separate containers. The best two options I have found for utilising this Docker deployment are:
 
 1. **Dev Containers** - A development container (or dev container for short) allows you to use a container as a full-featured development environment. It can be used to run an application, to separate tools, libraries, or runtimes needed for working with a codebase, and to aid in continuous integration and testing
 
 2. **Docker with LazyDocker & Just** - Docker containers managed through the use of LazyDocker to monitor the environments. These containers are spun up and spun down through the use of a Justfile which runs specific commands to setup your environments and manage your docker containers.
 
-The Dev Container setup is definetly the easiest. However I like the control that the second method gives you as I can monitor my airflow environment and adjust settings if needed. So, this article will go through the setup to run Airflow locally using Docker with LazyDocker & Just.
+The Dev Container setup is definitely the easiest. However I like the control that the second method gives you as I can monitor my airflow environment and adjust settings if needed. So, this article will go through the setup to run Airflow locally using Docker with LazyDocker & Just.
 
 ## Tech Stack
 
@@ -44,7 +44,7 @@ To install cargo you can use [rustup](https://rustup.rs/) to install the rust to
 The key components are:
 
 * **airflow-docker-compose.yaml** - contains the Basic Airflow cluster configuration for CeleryExecutor with Redis and PostgreSQL
-* **airflow-docker-compose-lite.yaml** - contains the Basic Airflow cluster configuration for LoaclExecutor
+* **airflow-docker-compose-lite.yaml** - contains the Basic Airflow cluster configuration for LocalExecutor
 * **Dockerfile** - user Docker image so that you can install libraries from your requirements.txt
 * **requirements.txt** - python libraries for use in airflow dag 
 * **.airflowignore** - Ignore anything not ending with _dag.py
@@ -68,9 +68,9 @@ volumes:
   - ~/.config/gcloud/application_default_credentials.json:/opt/airflow/plugins/application_default_credentials.json:rw
 ```
 
-If this file is not found please follow GCP setup step in the setup.
+If this file is not found, please follow GCP setup step in the setup.
 
-Volumes is important as that is what mounts your local file structure to the Docker Container. In this setup the dags are mounted from the root of your project and the other folders from the airflow folder. The .venv is also mounted to ensure their is no clash for the virtual environment.
+Volumes is important as that is what mounts your local file structure to the Docker Container. In this setup the dags are mounted from the root of your project and the other folders from the airflow folder. The .venv is also mounted to ensure there is no clash for the virtual environment.
 
 
 ### Run the project setup command to setup your libraries and virtual environment and docker
@@ -81,7 +81,7 @@ just project-setup
 
 ### Run `local-airflow` to create a local airflow instance for local testing
 
-Large airflow instance with redis, workers, triggerer, scheduler, postgres and webserer
+Large airflow instance with redis, workers, triggerer, scheduler, postgres and webserver
 ```bash
 just local-airflow
 ```
