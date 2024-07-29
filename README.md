@@ -62,9 +62,11 @@ You can add variables & connections in the configuration as long as they have th
 
 ---
 To ensure you are setup with GCP, you will need GOOGLE_APPLICATION_CREDENTIALS set and mounted to the container.
+```
 GOOGLE_APPLICATION_CREDENTIALS: /opt/airflow/plugins/application_default_credentials.json
 volumes:
   - ~/.config/gcloud/application_default_credentials.json:/opt/airflow/plugins/application_default_credentials.json:rw
+```
 If this file is not found please follow GCP setup step in the setup.
 ---
 
