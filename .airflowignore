@@ -1,0 +1,3 @@
+# Ignore anything not ending with _dag.py
+# (looks nasty as re2 does not support lookahead/lookbehind)
+^(.*([^\n_].{6}|[^\nd].{5}|.[^\na].{4}|.{2}[^\ng].{3}|.{3}[^\n.].{2}|.{4}[^\np].|.{5}[^\ny])|.{0,6})$
