@@ -25,7 +25,7 @@ This guide also shows how to ensure you are correctly setup with **Google Cloud 
 
 ## Setup
 
-1. Installation
+### Installation
 
 * Ensure you have VS Code installed and python installed
   
@@ -39,7 +39,7 @@ There are installation instructions in the repo. We have found the most success 
 To install cargo you can use [rustup](https://rustup.rs/) to install the rust toolchain
 (which cargo is a part of). Once cargo is installed you can run `cargo install just`.
 
-2. Copy the Airflow & Just code
+### Copy the Airflow & Just code
 
 The key components are:
 
@@ -73,13 +73,13 @@ If this file is not found please follow GCP setup step in the setup.
 Volumes is important as that is what mounts your local file structure to the Docker Container. In this setup the dags are mounted from the root of your project and the other folders from the airflow folder. The .venv is also mounted to ensure their is no clash for the virtual environment.
 
 
-3. Run the project setup command to setup your libraries and virtual environment and docker
+### Run the project setup command to setup your libraries and virtual environment and docker
 
 ```
 just project-setup
 ```
 
-4. Run `local-airflow` to create a local airflow instance for local testing
+### Run `local-airflow` to create a local airflow instance for local testing
 
 Large airflow instance with redis, workers, triggerer, scheduler, postgres and webserer
 ```bash
@@ -99,7 +99,7 @@ or
 just destroy-airflow-lite
 ```
 
-5. The just file also has extra commands for docker & installation
+### The just file also has extra commands for docker & installation
 ```bash
 # Docker commands
 just clean-docker-containers
@@ -112,4 +112,4 @@ just install-libraries
 just uninstall-libraries
 ```
 
-6. Now you are ready to start coding
+### Now you are ready to start coding
