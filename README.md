@@ -99,6 +99,8 @@ or
 just destroy-airflow-lite
 ```
 
+Ensure you run the destroy command to ensure the docker container is stopped. If you do not do this the container will continue to run in your WSL environment.
+
 ### The just file also has extra commands for docker & installation
 ```bash
 # Docker commands
