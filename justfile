@@ -5,7 +5,7 @@ PYTHON_VERSION := "3.9"
 PACKAGE_MANAGER_DEPENDENCIES := '"sed" "grep" "gawk" "python3-pip"'
 
 ## Project Setup pipeline
-project-setup: package_manager_dependencies env_file docker lazydocker-install
+project-setup: package_manager_dependencies env_file lazydocker-install docker
 
 ## install package manager dependencies
 package_manager_dependencies:
