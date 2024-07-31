@@ -22,14 +22,6 @@ lazydocker-install:
 env_file:
   echo "AIRFLOW_UID=1000" > .env
 
-## install libraries
-install-libraries:
-  ./.{{ VENV_NAME }}/bin/pip install -r requirements.txt
-
-## uninstall libraries
-uninstall-libraries:
-  ./.{{ VENV_NAME }}/bin/pip uninstall -r requirements.txt
-
 #Install docker by following the steps outlined on their website.
 docker:
 	sudo apt-get install ca-certificates curl gnupg
