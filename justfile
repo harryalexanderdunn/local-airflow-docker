@@ -1,14 +1,11 @@
 ## Python version
 PYTHON_VERSION := "3.9"
 
-## Project info
-VENV_NAME := "venv"
-
 ## Packages available from the package manager
 PACKAGE_MANAGER_DEPENDENCIES := '"sed" "grep" "gawk" "python3-pip"'
 
 ## Project Setup pipeline
-project-setup: package_manager_dependencies env_file virtual_env docker lazydocker-install
+project-setup: package_manager_dependencies env_file docker lazydocker-install
 
 ## install package manager dependencies
 package_manager_dependencies:
@@ -20,13 +17,6 @@ package_manager_dependencies:
 lazydocker-install:
   #!/bin/bash
   curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
-
-## create virtualenv
-virtual_env:
-  python3 -m venv .{{ VENV_NAME }}
-  ./.{{ VENV_NAME }}/bin/pip install -r requirements.txt
-  @echo 'Run `source ./.{{ VENV_NAME }}/bin/activate` to activate your environment'
-  @echo 'Run `deactivate` to deactivate your environment'
 
 ## Create the dotenv file for running it locally.
 env_file:
