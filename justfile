@@ -1,5 +1,5 @@
 ## Python version
-PYTHON_VERSION := "3.9"
+PYTHON_VERSION := "3.10"
 
 ## Packages available from the package manager
 PACKAGE_MANAGER_DEPENDENCIES := '"sed" "grep" "gawk" "python3-pip"'
