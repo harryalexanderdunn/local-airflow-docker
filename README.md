@@ -37,7 +37,8 @@ This should give you a credentials file in the location: ~/.config/gcloud/applic
 * Install just. Just is built using the Rust programming language ([just git repo](https://github.com/casey/just)).
 There are installation instructions in the repo. We have found the most success using `cargo`.
 To install cargo you can use [rustup](https://rustup.rs/) to install the rust toolchain
-(which cargo is a part of). Once cargo is installed you can run `cargo install just`.
+(which cargo is a part of). You will also need to run `sudo apt install build-essential` this is to ensure you have a C linker installed.
+Once cargo is installed (ensure you follow the last command for setup `. "$HOME/.cargo/env"`) you can run cargo install just
 
 ### Copy the Airflow & Just code
 
@@ -108,10 +109,6 @@ just clean-docker-containers
 just force-remove-docker-containers
 just show-running-containers
 just show-all-containers
-
-# Install requirements.txt on Virtual Environment
-just install-libraries
-just uninstall-libraries
 ```
 
 ### Now you are ready to start coding
